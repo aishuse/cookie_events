@@ -44,7 +44,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default="postgres:///events",
+        default="postgres://cookie:password@127.0.0.1:5432/events",
     ),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -81,6 +81,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "events.users",
+    "events.customer.apps.CustomerConfig",
+
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -278,3 +280,7 @@ SOCIALACCOUNT_FORMS = {"signup": "events.users.forms.UserSocialSignupForm"}
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+
+STRIPE_SECRET_KEY = 'sk_test_51KFL3ySAzjfwOsg9tg79akVTZfftrqlhgUgzmPAKiVFWRVZJF9LmZMx0yBzavIoAJS25qw2Sw9rPiYM6uqimYhWN00ylHplYwJ'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51KFL3ySAzjfwOsg95UpQibhhYe3Kbfg3gGUNkshtVBJ4fFfp2NzQXLvYTEOzqrTbC0CXNsSztKraEP6BPH5X0Mqt00mGg3Fmxc'

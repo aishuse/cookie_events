@@ -53,6 +53,16 @@
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'customer:eventlist' %}">List All Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'customer:myeventlist' %}">My Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'customer:eventadd' %}">Add Events</a>
+              </li>
+
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
                   <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% translate "My Profile" %}</a>
@@ -92,7 +102,6 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
 
     </div> <!-- /container -->
@@ -108,5 +117,12 @@
     </script>
     {% endcomment %}
     {% endblock inline_javascript %}
+
+
+    {%block body_block%}
+
+
+    {%endblock%}
+
   </body>
 </html>
